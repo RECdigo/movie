@@ -1,0 +1,105 @@
+header {
+
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 120px;
+    transition: 0.5s;
+    z-index: 9999;
+
+}
+
+header.scrolled {
+
+    background: rgba(0,0,0,0.6);
+    border-bottom: 2px solid var(--primary);
+    border-image: linear-gradient(90deg, transparent, var(--primary), transparent)30;
+    backdrop-filter: blur(20px);
+    padding: 10px 120px;
+    width: 100%;
+    
+
+}
+
+.logo {
+
+    font-family:'Racing Sand One', cursive;
+    font-size: 35px;
+    color:#ffffff;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+.nav {
+
+    display: flex;
+    justify-content:space-between;
+    max-height: 50px;
+    
+
+}
+
+
+.toggleBtn {
+    
+    display:none;
+    position: absolute;
+    top: 1.5rem;
+    right: 3rem;
+    width: 40px;
+    height: 30px;        
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+}
+
+.bar{    
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;   
+}
+
+@media only screen and (max-width: 1080px) {
+
+    .toggleBtn {
+        display: flex;
+    }
+
+    
+
+    .search, .nav, .mainBtn{
+
+        display: none;
+    
+    }
+
+    header .mainBtn{
+
+        display: none;
+    
+    }
+
+    header {
+
+        background: rgba(0,0,0,0.6);
+        border-bottom: 2px solid var(--primary);
+        border-image: linear-gradient(90deg, transparent, var(--primary), transparent)30;
+        backdrop-filter: blur(20px);
+        padding: 10px 120px;
+        position: fixed;        
+        width: 100%;
+    
+    }
+   
+    
+}
+
+
