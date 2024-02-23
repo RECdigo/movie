@@ -4,24 +4,11 @@ import MovieData from '../components/MovieData'
 import MovieSwiper from '../components/MovieSwiper'
 import PlayBtn from '../components/PlayBtn'
 import './banner.css'
-import imgBg from '../images/bg-ape copy.jpeg'
+import datas from '../data/movieData.json'
 
 
 function Banner() {
-    const [movies, setMovies] = useState([])
-
-    const fetchData = () =>{
-        fetch('http://localhost:3000/data/movieData.json')
-        .then(res => res.json())
-        .then(data => setMovies(data))
-        .catch(e=>console.log(e.message))
-    }
-
-    useEffect(() =>{
-
-        fetchData()
-
-    }, [])
+    const [movies, setMovies] = useState(datas)  
 
    const handleSlideChange = id => {
     const newMovies = movies.map(movie => {
@@ -39,7 +26,7 @@ function Banner() {
         {
             movies && movies.length>0 && movies.map(movie => (
                 <div key={movie._id} className='movie'>
-            <img src={movie.bgImg} alt='Background Image' className={`bgImg ${movie.active ? 'active' : 'undefined'}`}/>
+            <img src={require(`../images/movies/${movie.bgImg}`)} alt='Background Image' className={`bgImg ${movie.active ? 'active' : 'undefined'}`}/>
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-lg-6  col-sm-12'>

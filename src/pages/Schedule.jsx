@@ -2,35 +2,13 @@ import React, {useState, useEffect} from 'react'
 import './schedule.css'
 import Card from '../components/Card'
 import listFilter from '../data/listFilter'
+import datas from '../data/movieData.json'
 
 function Schedule() {
-    const [data, setData] = useState([])
-    const [movies, setMovies] = useState([])
-    const [filters, setFilters] = useState(listFilter)
-
+    const [data, setData] = useState(datas)
+    const [movies, setMovies] = useState(datas)  
+    const [filters, setFilters] = useState(listFilter) 
     
-
-    const fetchData = () =>{
-        fetch('http://localhost:3000/data/movieData.json')
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-            })
-            .catch(e=>console.log(e.message))
-    }
-
-    useEffect(() =>{
-
-        fetchData()
-
-    }, [])
-
-    useEffect (() => {
-
-        setMovies(data)       
-        
-
-    },[data])
 
     const handleFilterMovies = category => {
         setFilters(
@@ -44,9 +22,10 @@ function Schedule() {
         )
         
         if(category ==='All'){
-            setMovies(data)
+            setMovies(datas)
             return;
         }
+
         setMovies(data.filter(movie => movie.category === category))
     }
 

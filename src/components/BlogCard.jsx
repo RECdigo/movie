@@ -1,13 +1,15 @@
 import React from 'react'
 import './blogCard.css'
 
+
+
 function BlogCard({ blog }) {
   return (
     <div className='blog col-xl-3 col-md-6 mb-4'>
       <article>
         <div className='post-img'>
 
-          <img src={blog.thumbnail} alt='' className='img-fluid'/>
+          <img src={require(`../images/blogs/${blog.thumbnail}`)} alt='' className='img-fluid'/>
 
         </div>
         <p className='post-category'>{blog.category}</p>

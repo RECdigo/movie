@@ -2,14 +2,17 @@
 import React from 'react'
 import Button from './Button'
 import './movieContent.css'
-import imgTitle from '../images/ape-title copy.png'
+const img = 'transformer-title.png'
+
+
 
 
 function MovieContent({movie}) {
+
   return (
     
       <div className={`content ${movie.active ? 'active' : undefined}`}>
-            <img src={movie.titleImg} alt='Movie Title' className='movie-title'/>
+            <img src={require(`../images/movies/${movie.titleImg}`)} alt='Movie Title' className='movie-title'/>
             <h4>
                 <span>{movie.year}</span>
                 <span>

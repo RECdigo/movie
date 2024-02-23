@@ -1,24 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import BlogCard from '../components/BlogCard'
 import './blog.css'
+import datas from '../data/blogData.json'
 
 function Blog() {
-    const [blogs, setBlogs] = useState([])
+    const [blogs, setBlogs] = useState(datas)
 
-    const fetchData = () =>{
-        fetch('http://localhost:3000/data/blogData.json')
-            .then(res => res.json())
-            .then(data => {
-                setBlogs(data)
-            })
-            .catch(e=>console.log(e.message))
-    }
-
-    useEffect(() =>{
-
-        fetchData()
-
-    }, [])
+    
 
   return (
     <section id='blog' className='blogs'>
